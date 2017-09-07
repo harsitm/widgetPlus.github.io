@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" >
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div class="left_nav">
+
+	<p id="headingfeed"><span style="font-size:30px;">W</span>elcome <span style="font-size:30px;">T</span><span style="margin-left:-3px;">o <span style="font-size:30px;">W</span>idget+</span></p>
+	
+		<div id="items" style="margin-top:40px;">
+			<div id="itemsheader">
+			<span id="headerofitembox">Widget+</span><span id="crossbtn" onclick="crossbtn(this);">x</span>
+			</div>
+			Everything in one place!<br>
+			*Weather*<br>
+			*News Update*<br>
+			*To do List*
+			</div>
+			
+			<div id="itemstodo" style="margin-top:40px;">
+			<div id="itemsheader">
+			<span id="reloadbtn" style="float:left" onclick="updatetodolist();">&#x21bb;</span><span id="headerofitemboxtodo">To do list</span><span id="crossbtn" onclick="crossbtn(this);">x</span>
+			</div>
+			
+			<input type="text" name="ipadd" id="todolistid" placeholder="Add items here!" onkeypress="return enterpressed(event);"/>
+			<div id="itemstodolist">
+			
+			</div>
+			</div>
+			
+			
+			
+			
+			<div id="items" style="margin-top:40px;">
+			<div id="itemsheader">
+			<span id="reloadbtn" style="float:left" onclick="periodicupdatetime();">&#x21bb;</span><span id="headerofitembox">Date & Time</span><span id="crossbtn" onclick="crossbtn(this);">x</span>
+			</div>
+			<div id="timewidet"> 
+				""
+			</div>
+			</div>	
+			
+			<div id="items" style="margin-top:40px;">
+			<div id="itemsheader">
+			<span id="headerofitembox">Quote of the day</span><span id="crossbtn" onclick="crossbtn(this);">x</span>
+			</div>
+			<div id="timewidet"> 
+			<q>What sunshine is to flowers, smiles are to humanity.</q>
+			</div>
+			</div>
+			<div class="buttons">
+			<div class="allme">
+			<button>Like</button>
+			<button>Dislike</button>
+			</div>
+			</div>
+			</div>
+			
+	<div class="container_right">
+			<div class="headerofcontainer">
+				<p id="headerofcontainertext"><span style="font-size:30px;">T</span>hink. <span style="font-size:30px;">V</span>isulaize.<span style="font-size:30px;"> D</span>evelop.</p>
+			</div>
+			<div class="mydata">
+				
+			</div>
+	</div>
+	
+	
+	
+	<script src="js/widgets.js">
+	</script>
+</body>
+</html>
