@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+	.colora{
+		color:red;
+		border:1px solid red;
+	}
+</style>
+	<script src="Widget_modif/jquery-3.2.1.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="923995112314-qfgl03i0i9p2pqi5m7bmkfkaf33ouakb.apps.googleusercontent.com">
+</head>
+<body>
+	<!--<div id="met">
+	<p id="datat">HI THERE</p>
+	</div>
+	<div id="newbox">
+	
+	</div>
+	-->
+	<h1>Hii</h1>
+	<div>
+	<div>
+         <ul>
+            <li>list item 1</li>
+            <li>list item 2</li>
+            <li id="iambro">list item 3</li>
+            <li>list item 4</li>
+            <li>list item 5</li>
+            <li id="aau">list item 6</li>
+         </ul>
+      </div>
+	  </div>
+	  <h3>Hellow</h3>
+	  <button id="meow1">Add css class</button>
+	  <button id="meow2">Remove css class</button>
+	  <button id="meow3">Closure Console</button>
+	  <button id="meow4">Redirect to Google</button>
+		
+<h1>
+  <a href="" class="typewrite" data-period="2000" data-type='[ "Hi, Im Si.", "I am Creative.", "I Love Design.", "I Love to Develop." ]'>
+    <span class="wrap"></span>
+  </a>
+</h1>
+<div class="g-signin2" data-onsuccess="onSignIn">
+<button>Sign in</button>
+</div>
+<div class="g-signin2" data-onsuccess="onSignIn">
+</div>
+<script>
+var c=0;
+/*$("#datat").hide();
+function anim(){
+var data="Introducing Widget+";
+for(i=0;i<data.length;i++)
+{
+d=data.charAt(i);
+$("#datat").append(d);
+$("#datat").fadeIn(1000);
+delayd();
+}
+}
+anim();
+function delayd(){
+if(c>2){
+c=0;
+return;
+}
+c++;
+setTimeout(delayd,1000);
+}
+
+$("p:first").fadeOut(1000).fadeIn(1000);
+$("div").before("<p>Paragraph added by Jquery</p>");
+$("div").prepend("<p>Prepend by Jquery</p>");
+//$("div p:last").append("<p>I am another paragraph appended by Jquery</p>");
+$("div").append("<p>Inside div</p>");
+$("div").prepend("<p>Again Prepend</p>");
+$("#newbox").empty();
+$("#meow").click(function(){
+//$("div p:last").empty();
+//$("div p:odd").fadeOut(1000).fadeIn(2000);
+//$("#datat").appendTo("#newbox");
+$("#datat").insertAfter("#newbox");
+});
+
+*/
+$("#meow1").click(function(){
+//$("li").filter("#iambro").nextUntil("#aau").addClass("colora");
+//$("body").not("div").addClass("colora");
+//$("ul").children().toggleClass("colora");
+$("ul,h1").addClass("colora");
+});
+
+$("#meow2").click(function(){
+$("*").removeClass("colora");
+});
+
+$("li").eq(0).bind('click',function(){
+	alert("Woooooaawoww");
+});
+/*
+
+text();//same as innerHTML
+html();//Adding content and ret. content from a particular selector
+$(this).replaceWith("<h1>Jquery is awesome!</h1>");
+$(document).ready(function(){
+$("div").click(function(){
+//do something here $(this).replaceWith("hey how are you doing today");
+});
+});
+//we can use empty() for emptying or removing content of a particcular slector
+Selector.remove();//Removes selected element
+
+$(this).before("")
+*/
+
+$("#meow3").click(function(){
+	function doSomething(){
+		var counter=0;
+		return{
+			increment: function(){
+			counter++;
+			},
+			print:function(){
+				console.log(counter);
+			}
+		}
+	}
+	var c=doSomething();
+	c.increment();
+	c.print();
+});
+
+$("#meow4").click(function(){
+window.location="https://www.google.com";
+});
+
+//added css-tricks.com
+var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+	
+<!--Regular Expression
+-->
+//var regex=/p+/g;
+//var regex=/p*/;// /p?/-->At most one p p{N}-->Any string with sequence of n p
+//p{2,3} -->Sequence of 2 or 3 p's
+// p{2, }-->SSequnce of atleast 2 p's
+//p$ -->Ends with p
+//^p -->Starts with p
+//[^a-zA-Z0-9]
+//p.p ->p_ANYTHING_ONE_CHARACTER_p
+//^.{2}$ :Amy two chars
+//<br>(.*)</br> // ANy string enclosed in b/w <br> and </br>
+//p(hp)*
+//\s\S\d\D\w\D.[aeiou](foo|bar|baz)
+//modifiers: i->perform case insensitve matching
+//m:multiline matching
+//g:Global matching
+
+//v//ar stringtomatch="My Name is Pradee";	
+//if((stringtomatch).match(regex)){
+//console.log("Matched");
+//}
+//else{
+//console.log("Not matched");
+//}
+//http://farm5.static.flickr.com/4379/36703338650_093b266faa_h.jpg
+//google api:923995112314-qfgl03i0i9p2pqi5m7bmkfkaf33ouakb.apps.googleusercontent.com
+
+</script>	
+</body>
+</html>
